@@ -5,6 +5,15 @@
     <ClCompile Include="game_manager.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="main_menu.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="gameplay.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>Obj</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Obj">
@@ -17,6 +26,15 @@
   <ItemGroup>
     <ClInclude Include="game_manager.h">
       <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="main_menu.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="gameplay.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>Obj</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,12 +2,17 @@
 
 #include "raylib.h"
 
+#include "main_menu.h"
+#include "gameplay.h"
+
+const int screenBaseWidth = 640;
+const int screenBaseHeight = 400;
+
 static void MainGameLoop();
-static void MainDraw();
 
 void InitializeWindowNMainLoop()
 {
-	InitWindow(800, 600, "Gladius.exe");
+	InitWindow(screenBaseWidth, screenBaseHeight, "Gladius.exe");
 	MainGameLoop();
 }
 
@@ -15,14 +20,25 @@ static void MainGameLoop()
 {
 	while (!WindowShouldClose() || IsKeyPressed(KEY_ESCAPE))
 	{
-		MainDraw();
+
+		ClearBackground(BLACK);
+		BeginDrawing();
+		if (GetMenu())
+		{
+			UpdateMenu();
+			if (IsKeyPressed(KEY_ENTER))
+			{
+				SetMenuInverse();
+				SetPlayInverse();
+			}
+		}
+		else if (GetPlay())
+		{
+			
+			UpdateGame();
+		}
+
+		EndDrawing();
 	}
 }
 
-static void MainDraw()
-{
-	BeginDrawing();
-	ClearBackground(BLACK);
-	DrawText("new window ", 800 / 2.5, 450 / 2.5, 20, WHITE);
-	EndDrawing();
-}
