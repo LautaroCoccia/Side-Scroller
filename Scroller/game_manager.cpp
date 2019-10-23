@@ -25,17 +25,15 @@ static void MainGameLoop()
 		BeginDrawing();
 		if (GetMenu())
 		{
-			UpdateMenu();
-			if (IsKeyPressed(KEY_ENTER))
-			{
-				SetMenuInverse();
-				SetPlayInverse();
-			}
+			RunMenu();
 		}
 		else if (GetPlay())
 		{
-			
 			UpdateGame();
+		}
+		else if (!GetPlay())
+		{
+
 		}
 
 		EndDrawing();
