@@ -4,6 +4,7 @@
 
 #include "game_manager.h"
 #include "player.h"
+#include "enemy.h"
 
 bool play = false;
 static char pauseKey = 'P';
@@ -16,12 +17,19 @@ void UpdateGame()
 {
 	InitPlayer();
 	PauseGame();
-	if (GetPause())
+	if (!GetPause())
 	{	
+		InitEnemy();
+		CheckInput();
+		EnemyMovement();
+	}
+	else if (GetPause())
+	{
 		DrawText("PAUSE ", static_cast<int>(screenBaseWidth / 2.35), screenBaseHeight / 3, 30, WHITE);
 	}
 	DrawPlayer();
-	DrawText("PLAYING ", static_cast<int>(screenBaseWidth / 2.5), screenBaseHeight / 5, 30, WHITE);
+	DrawEnemy();
+	
 }
 void SetPlayInverse()
 {

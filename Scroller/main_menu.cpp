@@ -11,6 +11,8 @@ static void DrawMenu();
 static void UpdateMenu();
 static void DrawPlayButton();
 static void DrawControlsButton();
+static  Rectangle buttonPlay = { 280, 170, 80, 40, };
+static  Rectangle buttonCredits = { 270, 240, 100, 40 };
 
 void RunMenu()
 {
@@ -38,38 +40,38 @@ static void DrawMenu()
 }
 static void DrawPlayButton()
 {
-	if (GetMouseX() >= 358 && GetMouseX() <= 358 + 80 && GetMouseY() >= 170 && GetMouseY() <= 170 + 40)
+	if (GetMouseX() >= buttonPlay.x && GetMouseX() <=(buttonPlay.x+ buttonPlay.width) && GetMouseY() >= buttonPlay.y && GetMouseY() <=(buttonPlay.y+ buttonPlay.height))
 	{
 		if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
 		{
 			SetMenuInverse();
 			SetPlayInverse();
 		}
-		DrawRectangle(358, 170, 80, 40, RAYWHITE);
-		DrawText("Play", 375, 180, 20, BLACK);
+		DrawRectangle(buttonPlay.x,buttonPlay.y, buttonPlay.width, buttonPlay.height, RAYWHITE);
+		DrawText("Play", 300, 180, 20, BLACK);
 	}
 	else
 	{
-		DrawRectangle(358, 170, 80, 40, normalColorRec);
-		DrawText("Play", 375, 180, 20, RAYWHITE);
+		DrawRectangle(buttonPlay.x, buttonPlay.y, buttonPlay.width, buttonPlay.height, normalColorRec);
+		DrawText("Play", 300, 180, 20, RAYWHITE);
 	}
 }
 
 static void DrawControlsButton()
 {
-	if (GetMouseX() >= 350 && GetMouseX() <= 345 + 100 && GetMouseY() >= 240 && GetMouseY() <= 240 + 40)
+	if (GetMouseX() >= buttonCredits.x && GetMouseX() <= (buttonCredits.x + buttonCredits.width) && GetMouseY() >= buttonCredits.y && GetMouseY() <= buttonCredits.y + buttonCredits.height)
 	{
 		if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
 		{
 			SetMenuInverse();
 		}
-		DrawRectangle(350, 240, 100, 40, RAYWHITE);
-		DrawText("Contorls", 355, 250, 20, BLACK);
+		DrawRectangle(buttonCredits.x, buttonCredits.y, buttonCredits.width, buttonCredits.height, RAYWHITE);
+		DrawText("Contorls", 280, 250, 20, BLACK);
 	}
 	else
 	{
-		DrawRectangle(350, 240, 100, 40, BLUE);
-		DrawText("Contorls", 355, 250, 20, RAYWHITE);
+		DrawRectangle(buttonCredits.x, buttonCredits.y, buttonCredits.width, buttonCredits.height , BLUE);
+		DrawText("Contorls", 280, 250, 20, RAYWHITE);
 	}
 }
 
