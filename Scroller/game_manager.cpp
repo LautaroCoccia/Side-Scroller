@@ -1,5 +1,7 @@
 #include "game_manager.h"
 
+#include <stdlib.h>
+#include <time.h>
 #include "raylib.h"
 
 #include "main_menu.h"
@@ -18,6 +20,7 @@ void InitializeWindowNMainLoop()
 
 static void MainGameLoop()
 {
+	srand(time(NULL));
 	while (!WindowShouldClose() || IsKeyPressed(KEY_ESCAPE))
 	{
 
