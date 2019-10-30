@@ -5,23 +5,34 @@
 #include "game_manager.h"
 #include "player.h"
 #include "enemy.h"
+#include "game_over.h"
+
+#include <iostream>
+using namespace std;
 
 bool play = false;
-static char pauseKey = 'P';
 static bool pause = false;
+static void UpdateGame();
 static void PauseGame();
 static void SetPauseInverse();
 static bool GetPause();
+static void CheckPlayerEnemyCollision();
 
-void UpdateGame()
+void RunGameplay()
+{
+	UpdateGame();
+}
+static void UpdateGame()
 {
 	InitPlayer();
 	PauseGame();
+	CheckPlayerEnemyCollision();
 	if (!GetPause())
 	{	
 		InitEnemy();
 		CheckInput();
 		EnemyMovement();
+		
 	}
 	else if (GetPause())
 	{
@@ -42,7 +53,7 @@ bool GetPlay()
 }
 static void PauseGame()
 {
-	if (IsKeyPressed(pauseKey))
+	if (IsKeyPressed(KEY_P))
 	{
 		SetPauseInverse();
 	}
@@ -54,4 +65,14 @@ static void SetPauseInverse()
 static bool GetPause()
 {
 	return pause;
+}
+static void CheckPlayerEnemyCollision()
+{
+	//CheckCollisionRecs(P1.player, spaceship.enemySpaceship)
+	if (IsKeyPressed(KEY_ENTER))
+	{
+		cout << "collision" << endl;
+		SetGameOverInverse();
+		SetPlayInverse();
+	}
 }
