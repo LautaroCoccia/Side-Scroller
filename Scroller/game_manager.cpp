@@ -6,6 +6,7 @@
 
 #include "main_menu.h"
 #include "gameplay.h"
+#include "game_over.h"
 
 const int screenBaseWidth = 640;
 const int screenBaseHeight = 400;
@@ -32,11 +33,11 @@ static void MainGameLoop()
 		}
 		else if (GetPlay())
 		{
-			UpdateGame();
+			RunGameplay();
 		}
-		else if (!GetPlay())
+		else if (GetGameOver())
 		{
-
+			RunGameOver();
 		}
 
 		EndDrawing();
