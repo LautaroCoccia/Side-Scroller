@@ -2,7 +2,12 @@
 
 #include "raylib.h"
 
-
+struct Player 
+{
+	bool isAlive= false;
+	int lifePoints;
+	Rectangle player;
+};
 Player P1;
 
 void InitPlayer()
