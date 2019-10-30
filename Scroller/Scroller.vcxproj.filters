@@ -17,6 +17,7 @@
     <ClCompile Include="enemy.cpp">
       <Filter>Obj</Filter>
     </ClCompile>
+    <ClCompile Include="game_over.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Obj">
@@ -42,5 +43,6 @@
     <ClInclude Include="enemy.h">
       <Filter>Obj</Filter>
     </ClInclude>
+    <ClInclude Include="game_over.h" />
   </ItemGroup>
 </Project>
